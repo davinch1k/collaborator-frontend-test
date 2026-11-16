@@ -102,11 +102,23 @@ button:focus-visible {
   margin: 0 0 4px;
 }
 
-.dropdown-menu li {
+.dropdown-option {
+  display: block;
+  width: 100%;
   padding: 0.25rem 1.25rem;
-  cursor: pointer;
+  border: 0;
+  border-radius: 0;
+  white-space: nowrap;
 }
 
-.dropdown-menu li:hover {
-  background: rgba(255, 212, 59, 0.2);
+.dropdown-option::after {
+  content: none;
+}
+
+.dropdown-option:hover {
+  background: rgb(255, 212, 59, 0.2);
+}
+
+.dropdown-option:focus-visible {
+  outline-offset: -3px;
 }

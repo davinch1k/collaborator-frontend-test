@@ -23,20 +23,36 @@ export default function Dropdown({ options, value, onChange }) {
 
   const toggle = () => setOpen((isOpen) => !isOpen);
 
+  const closeAndFocusTrigger = () => {
+    setOpen(false);
+    triggerRef.current.focus();
+  }
+
+  const handleKeyDown = (e) => {
+    if(e.key === "Escape" && open) {
+      closeAndFocusTrigger();
+    }
+  }
+
   return (
-    <div className={"dropdown"}>
-      <button ref={triggerRef} type="button" onClick={toggle}>{value} ▾</button>
+    <div className={"dropdown"} onKeyDown={handleKeyDown}>
+      <button ref={triggerRef} type="button" onClick={toggle} aria-expanded={open}>
+        {value} ▾
+      </button>
       {open && (
         <ul ref={dropMenuRef} className={up ? 'dropdown-menu up' : 'dropdown-menu'}>
           {options.map((v) => (
-            <li
-              key={v}
-              onClick={() => {
-                onChange(v);
-                setOpen(false);
-              }}
-            >
-              {v}
+            <li key={v}>
+              <button
+                className="dropdown-option"
+                type="button"
+                onClick={() => {
+                  onChange(v);
+                  closeAndFocusTrigger();
+                }}
+              >
+                {v}
+              </button>
             </li>
           ))}
         </ul>
