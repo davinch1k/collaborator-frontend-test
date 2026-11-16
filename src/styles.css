@@ -74,6 +74,13 @@ button {
   }
 }
 
+.card-description {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+}
+
 button:focus-visible {
   outline: 3px solid #fff;
   outline-offset: 3px;
@@ -94,6 +101,7 @@ button:focus-visible {
   background: #1e3a5f;
   border: 2px solid currentColor;
   border-radius: 6px;
+  z-index: 10;
 }
 
 .dropdown-menu.up {
