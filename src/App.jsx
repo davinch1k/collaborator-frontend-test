@@ -19,7 +19,7 @@ export default function App() {
   return (
     <>
       <h1>{greeting(__APP_NAME__)}</h1>
-      <div className="card">
+      <div className={"card"}>
         <h2>Card</h2>
         <Dropdown
           options={options}

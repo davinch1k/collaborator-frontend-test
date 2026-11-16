@@ -44,7 +44,7 @@ export default function Dropdown({ options, value, onChange }) {
           {options.map((v) => (
             <li key={v}>
               <button
-                className="dropdown-option"
+                className={"dropdown-option"}
                 type="button"
                 onClick={() => {
                   onChange(v);
