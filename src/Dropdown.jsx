@@ -18,7 +18,7 @@ export default function Dropdown({ options, value, onChange }) {
     const spaceAbove = trigger.top;
     const spaceBelow = window.innerHeight - trigger.bottom;
 
-    setUp(spaceAbove < height + gap && spaceAbove > spaceBelow);
+    setUp(spaceBelow < height + gap && spaceAbove > spaceBelow);
   }, [open]);
 
   const toggle = () => setOpen((isOpen) => !isOpen);
